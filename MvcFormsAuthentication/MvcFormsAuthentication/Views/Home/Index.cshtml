@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Home</h2>
+
+<li>
+            @{
+                if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+                    }
+                }
+                else
+                {
+                    @Html.ActionLink("Login","Login","Account")
+                }
+            }
+        </li>
